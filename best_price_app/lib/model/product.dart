@@ -12,4 +12,13 @@ class Product {
     @required this.product_image_link,
     @required this.shop
   });
+
+  factory Product.fromJson(Map<String, dynamic> json) {
+      return new Product(
+         product_name: json['product_name'],
+         product_price: json['product_price'],
+         product_image_link: json['product_image_link'],
+         shop: json['shop']
+      );
+   }
 }

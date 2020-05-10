@@ -27,8 +27,13 @@ app.get('/product/:product_name', (req, res, next) => {
                     var img_link = $(e).find('.a-section.aok-relative.s-image-square-aspect').find('img').attr('src');
                     
                     if(name!=null && price!=null && img_link!=null){
-                        var product = new Product(name, price, img_link, 'amazon');
-                        product_list.push(product);
+                        //var product = new Product(name, price, img_link, 'amazon');
+                        product_list.push({
+                        	"product_name" : name,
+                        	"product_price" : price,
+                        	"product_image_link" : img_link,
+                        	"shop" : "amazon"
+                        });
                     }
                 });
                 res.send(product_list);

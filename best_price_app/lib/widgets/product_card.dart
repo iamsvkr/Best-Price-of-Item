@@ -1,33 +1,22 @@
+import '../model/product.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
   // const ProductCard({Key key}) : super(key: key);
 
-  final String imglink, name, price;
+  final Product product;
 
   ProductCard({
-    @required this.name,
-    @required this.price, 
-    @required this.imglink
+    @required this.product
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Card(
-        child: Column(
-          children: <Widget>[
-            Container(
-              height: 40.0,
-              width: 40.0,
-              child: Image.network(imglink),
-            ),
-            SizedBox(height : 10),
-            Container(
-              
-            ) 
-          ],
-        ),
+      child: ListTile(
+        leading: Image.network(product.product_image_link),
+        title: Text(product.product_name.substring(0, 9)),
+        subtitle: Text("Rs. "+product.product_price),
       ),
     );
   }
